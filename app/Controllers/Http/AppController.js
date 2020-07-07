@@ -1,8 +1,12 @@
 'use strict'
 
+const database = use('Database')
+
 class AppController {
-    index() {
-        return "Hello world";
+    async index() {
+        const result = await database.raw("select * from users")
+               
+        return result.rows 
     }
 }
 
