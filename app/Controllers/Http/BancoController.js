@@ -23,6 +23,7 @@ class BancoController {
    */
   async index () {
     const bancos = await Banco.all();
+    
     return bancos;
 
   }
