@@ -21,11 +21,13 @@ Route.post('/authenticate','AuthController.authenticate')
 
 Route.get('app',"AppController.index").middleware(['auth']) 
 
+Route.get('app2',"App2Controller.index").middleware(['auth']) 
+
 
 Route.group(() => {
-  Route.resource("tweets","TweetController")
-  .apiOnly()
-  .except("update");
+
+  Route.resource("tweets","TweetController").apiOnly().except("update");
+  Route.resource("bancos","BancoController").apiOnly().except("update");
 
 }).middleware("auth");
 

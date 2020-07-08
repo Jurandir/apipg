@@ -1,9 +1,13 @@
-"use strict";
+'use strict'
 
-class AppController {
-    index() {
-        return "Hello world";
+const database = use('Database')
+
+class App2Controller {
+    async index() {
+        const result = await database.raw("select * from users")
+               
+        return result.fields 
     }
 }
 
-module.exports = AppController;
+module.exports = App2Controller
